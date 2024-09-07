@@ -39,14 +39,43 @@
   </div>
 </template>
 
-<script setup>
-const companyName = "Acme.org";
+<script setup lang="ts">
+import { useStorage } from "@vueuse/core";
 
-const unionGoals = "To improve working conditions and wages for all employees";
-const unionMissionStatement =
-  "Our mission is to empower workers to stand together for fair wages, job security, and the respect they deserve.";
+const companyName = ref("");
+
+const unionGoals = ref("");
+const unionMissionStatement = ref("");
+
+interface UnionInfo {
+  unionName: string;
+  qrCodeLink: string;
+  signedCount: number;
+  checkProfilesTF: boolean;
+}
+
+const userToken = useStorage("userToken", "");
+
+onMounted(async () => {
+  await fetchUnionInfo();
+});
+
+async function fetchUnionInfo() {
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  } as const;
+
+  const url = `http://3.34.105.135:8000/creators/create/${userToken.value}`;
+
+  const result = (await fetch(url, requestOptions).catch((error) => {
+    console.error("Error:", error);
+  })) as unknown as UnionInfo[];
+
+  companyName.value = result[0].unionName;
+}
 </script>
-
-<script lang="ts" setup></script>
 
 <style></style>

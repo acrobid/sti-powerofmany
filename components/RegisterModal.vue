@@ -1,7 +1,7 @@
 <template>
   <GenericModal v-model="isOpen" title="Register for a new account">
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form class="space-y-6" action="#" method="POST">
+      <form class="space-y-6">
         <div>
           <label
             for="email"
@@ -77,7 +77,6 @@
         </div>
         <div>
           <UButton
-            type="submit"
             color="violet"
             class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             :disabled="isDisabled"
@@ -117,12 +116,12 @@ const passwordConfirmHint = computed(() => {
 
 async function submitRegistration() {
   const json = {
-    creatorName: "홍길동",
-    emailName: "hong@example.com",
+    creatorName: email.value,
+    emailName: email.value,
     birthDate: "1990-01-01",
-    phoneNum: "01012345678",
-    userId: "hong123",
-    userPwd: "securepassword",
+    phoneNum: email.value,
+    userId: email.value,
+    userPwd: password.value,
   };
   const raw = JSON.stringify(json);
 
@@ -134,7 +133,7 @@ async function submitRegistration() {
     },
   } as const;
 
-  const result = await $fetch(
+  const result = await fetch(
     "http://3.34.105.135:8000/creators/register",
     requestOptions,
   ).catch((error) => {

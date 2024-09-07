@@ -87,18 +87,43 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from "vue";
+<script setup lang="ts">
+import { useStorage } from "@vueuse/core";
+const userToken = useStorage("userToken", "");
 
 const organizationName = ref("");
 const missionStatement = ref("");
 const whatWeDo = ref("");
 
-function submitForm() {
+async function submitForm() {
   console.log({
     organizationName: organizationName.value,
     missionStatement: missionStatement.value,
     whatWeDo: whatWeDo.value,
   });
+
+  const json = {
+    unionName: organizationName.value,
+    whatWeDo: whatWeDo.value,
+    missionStatement: missionStatement.value,
+    qrCodeLink: "https://sti-powerofmany.vercel.app/LandingPage",
+  };
+  const raw = JSON.stringify(json);
+
+  const requestOptions = {
+    method: "POST",
+    body: raw,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  } as const;
+
+  const url = `http://3.34.105.135:8000/creators/create/${userToken.value}`;
+
+  const result = await fetch(url, requestOptions).catch((error) => {
+    console.error("Error:", error);
+  });
+
+  console.log({ result });
 }
 </script>
