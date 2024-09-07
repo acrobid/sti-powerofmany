@@ -6,13 +6,10 @@
 
 <script lang="ts" setup>
 import { useQRCode } from "@vueuse/integrations/useQRCode";
-import { useRouteParams } from "@vueuse/router";
 
-const link = useRouteParams(
-  "link",
-  "https://sti-powerofmany.vercel.app/LandingPage",
-);
-const qrcode = useQRCode(link.value);
+const props = defineProps<{ link: string }>();
+
+const qrcode = useQRCode(props.link);
 </script>
 
 <style>

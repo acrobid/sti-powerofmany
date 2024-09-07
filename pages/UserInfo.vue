@@ -3,7 +3,7 @@
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 space-y-4">
         <OrganizerInfoCard />
-        <div v-if="campaignExists">
+        <div v-if="!campaignExists">
           <OrganizationSummaryCard :company-name="companyName" />
           <CampaignUserList :union-name="companyName" />
         </div>

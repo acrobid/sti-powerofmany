@@ -156,6 +156,7 @@
       <div class="mt-10">
         <UButton
           class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 hover:shadow-lg hover:scale-105 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          :disabled="!agreed"
           @click="submitForm"
         >
           Sign and Submit
