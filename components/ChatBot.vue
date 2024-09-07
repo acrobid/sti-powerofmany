@@ -10,6 +10,7 @@
         <UInput
           id="search"
           v-model="chatInput"
+          variant="none"
           color="violet"
           type="text"
           name="search"
