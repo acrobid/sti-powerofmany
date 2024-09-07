@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <LoginModal v-model="loginModal" />
+      <LoginModal v-model="loginModal" @register="registerModal = true" />
       <RegisterModal v-model="registerModal" />
     </nav>
   </div>

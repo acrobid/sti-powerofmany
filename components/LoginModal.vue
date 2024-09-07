@@ -58,6 +58,7 @@
           >
             Log in
           </UButton>
+          <UButton @click="$emit('register')">Register</UButton>
         </div>
       </form>
     </div>
@@ -70,6 +71,7 @@
 </template>
 
 <script lang="ts" setup>
+defineEmits(["register"]);
 const isOpen = defineModel<boolean>();
 </script>
 
