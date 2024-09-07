@@ -11,7 +11,7 @@
           <div class="text-2xl font-bold">Form a union</div>
         </div>
 
-        <div v-if="!isLoggedIn">
+        <div v-if="!isLoggedIn" class="gap-4 flex flex-end">
           <UButton
             color="violet"
             class="px-4 py-2 rounded mr-2"
@@ -27,7 +27,7 @@
             Sign Up
           </UButton>
         </div>
-        <div v-else class="gap-6 flex">
+        <div v-else class="gap-4 flex flex-end">
           <UButton
             class="bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded"
             @click="router.push('/UserInfo')"
