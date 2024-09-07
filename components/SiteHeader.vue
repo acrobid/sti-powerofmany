@@ -8,7 +8,9 @@
             alt="Union Creation Logo"
             class="h-10 w-auto mr-4"
           />
-          <div class="text-2xl font-bold">Form a union</div>
+          <div class="text-2xl font-bold" style="text-wrap: pretty">
+            Form A Union
+          </div>
         </div>
 
         <div v-if="!isLoggedIn" class="gap-4 flex flex-end">

@@ -19,7 +19,7 @@
         />
       </svg>
     </span>
-    <p>{{ question }}</p>
+    <p class="text-white">{{ question }}</p>
   </button>
 </template>
 
