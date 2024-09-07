@@ -2,9 +2,8 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  image: {
-    provider: "ipx",
-  },
+  image: {},
+
   head: {
     link: [
       {
