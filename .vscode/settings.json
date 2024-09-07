@@ -1,3 +1,6 @@
 {
-    "nuxtr.defaultPackageManager": "null"
+    "nuxtr.defaultPackageManager": "null",
+    "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit", 
+  },
 }
