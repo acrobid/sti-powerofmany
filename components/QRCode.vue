@@ -15,4 +15,9 @@ const link = useRouteParams(
 const qrcode = useQRCode(link.value);
 </script>
 
-<style></style>
+<style>
+img {
+  fill: violet;
+  color: white;
+}
+</style>
