@@ -4,7 +4,7 @@
       <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 space-y-4">
         <OrganizerInfoCard />
         <div v-if="campaignExists">
-          <OrganizationSummaryCard />
+          <OrganizationSummaryCard :company-name="companyName" />
           <CampaignUserList />
         </div>
         <div v-else>
@@ -16,5 +16,44 @@
 </template>
 
 <script setup lang="ts">
-const campaignExists = ref(true);
+import { useStorage } from "@vueuse/core";
+
+const userToken = useStorage("userToken", "");
+
+const companyName = ref("");
+const campaignExists = computed(() => companyName.value !== "");
+
+interface UnionInfo {
+  unionName: string;
+  qrCodeLink: string;
+  signedCount: number;
+  checkProfilesTF: boolean;
+}
+
+onMounted(async () => {
+  await fetchUnionInfo();
+});
+
+async function fetchUnionInfo() {
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  } as const;
+
+  const url = `http://3.34.105.135:8000/creators/create/${userToken.value}`;
+
+  try {
+    const result = (await $fetch(
+      url,
+      requestOptions,
+    )) as unknown as UnionInfo[];
+    console.log({ result });
+    const { unionName } = result[0];
+    companyName.value = unionName;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
 </script>

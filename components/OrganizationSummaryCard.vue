@@ -40,42 +40,18 @@
 </template>
 
 <script setup lang="ts">
-import { useStorage } from "@vueuse/core";
-
-const companyName = ref("");
-
-const unionGoals = ref("");
-const unionMissionStatement = ref("");
-
-interface UnionInfo {
-  unionName: string;
-  qrCodeLink: string;
-  signedCount: number;
-  checkProfilesTF: boolean;
-}
-
-const userToken = useStorage("userToken", "");
-
-onMounted(async () => {
-  await fetchUnionInfo();
-});
-
-async function fetchUnionInfo() {
-  const requestOptions = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  } as const;
-
-  const url = `http://3.34.105.135:8000/creators/create/${userToken.value}`;
-
-  const result = (await fetch(url, requestOptions).catch((error) => {
-    console.error("Error:", error);
-  })) as unknown as UnionInfo[];
-
-  companyName.value = result[0].unionName;
-}
+withDefaults(
+  defineProps<{
+    companyName: string;
+    unionGoals?: string;
+    unionMissionStatement?: string;
+  }>(),
+  {
+    companyName: "Union Creation",
+    unionGoals: "",
+    unionMissionStatement: "",
+  },
+);
 </script>
 
 <style></style>
