@@ -115,8 +115,33 @@ const passwordConfirmHint = computed(() => {
   return doPasswordsMatch.value ? "Passwords match" : "Passwords do not match";
 });
 
-function submitRegistration() {
-  console.log("Submitting registration...");
+async function submitRegistration() {
+  const json = {
+    creatorName: "홍길동",
+    emailName: "hong@example.com",
+    birthDate: "1990-01-01",
+    phoneNum: "01012345678",
+    userId: "hong123",
+    userPwd: "securepassword",
+  };
+  const raw = JSON.stringify(json);
+
+  const requestOptions = {
+    method: "POST",
+    body: raw,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  } as const;
+
+  const result = await $fetch(
+    "http://3.34.105.135:8000/creators/register",
+    requestOptions,
+  ).catch((error) => {
+    console.error("Error:", error);
+  });
+
+  console.log({ result });
 }
 </script>
 
