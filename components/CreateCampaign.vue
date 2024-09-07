@@ -1,5 +1,5 @@
 <template>
-  <div class="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+  <div class="isolate bg-white px-6 py-24 sm:rounded-lg lg:px-8">
     <div class="mx-auto max-w-2xl lg:text-center">
       <h1 class="text-base font-semibold leading-7 text-indigo-700 lg:text-5xl">
         Create a Union
