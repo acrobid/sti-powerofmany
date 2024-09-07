@@ -40,10 +40,13 @@
 
         <p class="mt-6 text-center text-sm text-gray-400">
           Join today and make a difference.
-          <a class="font-semibold text-reen-400 hover:text-violet-300"
-            >Learn more</a
+          <a 
+            class="font-semibold text-white hover:text-violet-300 cursor-pointer"
           >
+            Create a union
+          </a>
         </p>
+
       </div>
     </div>
 
