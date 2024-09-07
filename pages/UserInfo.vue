@@ -8,7 +8,7 @@
           </div>
           <OrganizerInfoCard />
         </div>
-        <div v-if="!campaignExists">
+        <div v-if="campaignExists">
           <OrganizationSummaryCard :company-name="companyName" />
           <CampaignUserList :union-name="companyName" />
         </div>

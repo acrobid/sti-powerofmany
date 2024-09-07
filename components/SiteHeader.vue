@@ -27,13 +27,19 @@
             Sign Up
           </UButton>
         </div>
-        <button
-          v-else
-          class="bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded"
-          @click="logout"
-        >
-          Logout
-        </button>
+        <div v-else class="gap-6 flex">
+          <UButton
+            class="bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded"
+            @click="router.push('/UserInfo')"
+            >Dashboard</UButton
+          >
+          <UButton
+            class="bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded"
+            @click="logout"
+          >
+            Logout
+          </UButton>
+        </div>
       </div>
 
       <LoginModal v-model="loginModal" @register="registerModal = true" />
