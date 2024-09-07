@@ -6,12 +6,9 @@
         <div class="mx-auto max-w-2xl text-center">
           <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
             Form the Union of Your Future
-            Form the Union of Your Future
           </h1>
           <p class="mt-6 text-lg leading-8 text-gray-300">
             Be part of a global movement, stand together, and make your voice
-            heard. Learn about the benefits of union formation and create one
-            today.
             heard. Learn about the benefits of union formation and create one
             today.
           </p>
