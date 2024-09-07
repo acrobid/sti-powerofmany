@@ -54,7 +54,6 @@
           </div>
           <div class="mt-2">
             <UInput
-              id="password"
               v-model="confirmPassword"
               color="violet"
               variant="none"
@@ -97,8 +96,8 @@
       >
         Close
       </UButton>
-    </div></GenericModal
-  >
+    </div>
+  </GenericModal>
 </template>
 
 <script lang="ts" setup>
