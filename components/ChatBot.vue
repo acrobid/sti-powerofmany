@@ -36,6 +36,12 @@
         }"
       />
     </p>
+    <ChatBotExampleButton
+      v-for="question in unionQuestions"
+      :key="question"
+      :question="question"
+      @start-chat="(input: string)=>useExampleQuestion(input)"
+    />
   </div>
 </template>
 
@@ -52,6 +58,11 @@ const chatKey = computed(() =>
     : chatOutput.value,
 );
 const loading = ref(false);
+
+async function useExampleQuestion(question: string) {
+  chatInput.value = question;
+  await chat(question);
+}
 
 async function chat(input: string) {
   loading.value = true;
@@ -85,6 +96,19 @@ async function chat(input: string) {
   console.log({ result });
   console.log(chatOutput.value);
 }
+
+const unionQuestions = [
+  "What are the benefits of joining a union?",
+  "How much are union dues, and what do they cover?",
+  "How does the union handle grievances and disputes?",
+  "Will joining a union affect my job security?",
+  "What is the process for joining a union?",
+  "How do unions negotiate contracts with employers?",
+  "What role do I play as a union member?",
+  "How do unions ensure that employers comply with agreements?",
+  "Can I be forced to join a union?",
+  "What happens if I disagree with the union’s decisions?",
+];
 </script>
 
 <style scoped>
