@@ -14,10 +14,7 @@
       </p>
     </div>
     <form
-      action="#"
-      method="POST"
       class="mx-auto mt-16 max-w-xl sm:mt-20 bg-gray-50 p-8 rounded-lg shadow-lg"
-      @submit="submitForm"
     >
       <div class="grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2">
         <div>
@@ -157,20 +154,32 @@
         </SwitchGroup>
       </div>
       <div class="mt-10">
-        <button
-          type="submit"
+        <UButton
           class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 hover:shadow-lg hover:scale-105 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          @click="submitForm"
         >
-          Sign and Submit
-        </button>
+          Sign and Submit {{ unionName }}
+        </UButton>
       </div>
     </form>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import { Switch, SwitchGroup, SwitchLabel } from "@headlessui/vue";
+import { useRouteQuery } from "@vueuse/router";
+
+const unionName = useRouteQuery("unionName", "");
+
+interface NonUserInfo {
+  nonUserName: string;
+  employeeId: string;
+  jobTitle: string;
+  department: string;
+  nonUserEmail: string;
+  nonUserPhoneNum: string;
+}
 
 const email = ref("");
 const firstName = ref("");
@@ -181,15 +190,36 @@ const employeeId = ref("");
 
 const agreed = ref(false);
 
-function submitForm() {
-  console.log({
-    email: email.value,
-    firstName: firstName.value,
-    lastName: lastName.value,
+async function submitForm() {
+  const nonUserInfo: NonUserInfo = {
+    nonUserName: `${firstName.value} ${lastName.value}`,
+    employeeId: employeeId.value,
     jobTitle: jobTitle.value,
     department: department.value,
-    employeeId: employeeId.value,
-    agreed: agreed.value,
+    nonUserEmail: email.value,
+    nonUserPhoneNum: "010-1234-5678",
+  };
+
+  console.log(nonUserInfo);
+
+  const raw = JSON.stringify(nonUserInfo);
+
+  const requestOptions = {
+    method: "POST",
+    body: raw,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  } as const;
+
+  const url = `http://3.34.105.135:8000/sign/${unionName.value}`;
+
+  console.log({ url });
+
+  const result = await $fetch(url, requestOptions).catch((error) => {
+    console.error("Error:", error);
   });
+
+  console.log({ result });
 }
 </script>

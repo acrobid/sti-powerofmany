@@ -103,7 +103,7 @@ async function submitForm() {
     unionName: organizationName.value,
     whatWeDo: whatWeDo.value,
     missionStatement: missionStatement.value,
-    qrCodeLink: "https://sti-powerofmany.vercel.app/LandingPage",
+    qrCodeLink: `https://sti-powerofmany.vercel.app/NonUserUnion?unionName=${organizationName.value}`,
   };
   const raw = JSON.stringify(json);
 

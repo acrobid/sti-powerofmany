@@ -100,9 +100,15 @@
 </template>
 
 <script lang="ts" setup>
+import { useStorage } from "@vueuse/core";
+
 const email = ref("");
 const password = ref("");
 const confirmPassword = ref("");
+
+const router = useRouter();
+
+const userToken = useStorage("userToken", "");
 
 const isOpen = defineModel<boolean>();
 const isDisabled = computed(() => !email.value || !password.value);
@@ -138,7 +144,18 @@ async function submitRegistration() {
     requestOptions,
   ).catch((error) => {
     console.error("Error:", error);
+    return;
   });
+
+  // @ts-expect-error no typing here
+  userToken.value = result?.id;
+
+  console.log(userToken.value);
+
+  if (userToken.value) {
+    router.push({ path: "/UserInfo" });
+    isOpen.value = false;
+  }
 
   console.log({ result });
 }

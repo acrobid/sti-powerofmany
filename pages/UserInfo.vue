@@ -5,7 +5,7 @@
         <OrganizerInfoCard />
         <div v-if="campaignExists">
           <OrganizationSummaryCard :company-name="companyName" />
-          <CampaignUserList />
+          <CampaignUserList :union-name="companyName" />
         </div>
         <div v-else>
           <CreateCampaign />
