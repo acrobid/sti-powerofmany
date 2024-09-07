@@ -13,43 +13,8 @@
             today.
           </p>
         </div>
-
-        <div class="relative mt-16 max-w-md mx-auto pulse-border">
-          <div
-            class="bg-gray-900 bg-opacity-80 rounded-xl p-6 shadow-lg text-center border border-violet-500"
-          >
-            <h5 class="text-2xl font-bold text-white">
-              Need help? Ask our chatbot about unions!
-            </h5>
-            <div class="relative mt-4 flex items-center space-x-3">
-              <UInput
-                id="search"
-                v-model="chatInput"
-                color="violet"
-                type="text"
-                name="search"
-                class="block w-full px-4 py-2 border border-transparent rounded-md bg-gray-800 text-gray-300 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent"
-                placeholder="What benefits do unions offer?"
-              />
-              <UButton color="violet" class="px-6 py-2" @click="chat">
-                Chat Now
-              </UButton>
-            </div>
-          </div>
-        </div>
-
-        <p class="mt-6 text-center text-sm text-gray-400">
-          <TypewriterEffect
-              :options="{
-                strings: [
-                  'Unions reduce income inequality.',
-                  'Unions provide better benefits.',
-                  'Unions protect workers from exploitation.',
-                ],
-              }"
-            />
-        </p>
       </div>
+      <ChatBot />
     </div>
 
     <!-- Union Cards Section -->
@@ -76,23 +41,6 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 
-const chatInput = ref("");
-async function chat() {
-  try {
-    console.log(`Sending chat message: ${chatInput.value}`);
-    const result = await $fetch("https://debisoft-magic.hf.space/api/predict", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ data: ["Why are unions good?"] }),
-    });
-
-    console.log(result);
-  } catch (error) {
-    console.error("There was a problem with the fetch operation:", error);
-  }
-}
 const unions = ref([
   {
     id: 1,
@@ -130,35 +78,5 @@ const unions = ref([
 <style scoped>
 .hero {
   background-color: #1f2937; /* Dark background for the hero section */
-}
-
-.pulse-border {
-  @keyframes pseudo-fade-in-out {
-    0% {
-      opacity: 1;
-    }
-    30% {
-      scale: 1.05;
-      opacity: 0;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-}
-
-.pulse-border::after {
-  content: ""; /* Create the pseudo-element */
-  position: absolute; /* Position it absolutely relative to the parent */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  animation: pseudo-fade-in-out 6s infinite;
-  transition: outline 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  outline: 3px solid rgba(136, 0, 163, 0.5);
-  outline-offset: 0px;
-  border-radius: 12px;
-  pointer-events: none; /* Ensure it doesn't interfere with interactions */
 }
 </style>
