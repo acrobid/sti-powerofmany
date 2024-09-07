@@ -136,7 +136,8 @@ async function submitForm() {
   const { unionName, qrCodeLink } = result;
 
   router.push({
-    path: `/UnionInfo?unionName=${unionName}&qrCodeLink=${qrCodeLink}`,
+    path: `/CreateOrganizationCompletion`,
+    query: { unionName, qrLink: qrCodeLink }, // ?unionName=${unionName}&qrCodeLink=${qrCodeLink}`,
   });
 
   console.log({ result });
