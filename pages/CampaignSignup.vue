@@ -1,6 +1,7 @@
 <!-- Working on this page -->
-<!-- N1: This page is dynamic (only the UNION_NAME title should be changed accordingly) -->
+<!-- N1: union_name title should be pulled from the backend -->
 <!-- N2: the submit & redirect button should redirect to a completion page -->
+<!-- N3: completion page should be added still! -->
 
 <template>
   <div>
@@ -14,7 +15,7 @@
     <UInput v-model="employee_id" size="sm" color="white" placeholder="Employee Id" />
     <UInput v-model="email" size="sm" color="white" placeholder="Email address" />
     <UInput v-model="phone_number" size="sm" color="white" placeholder="Phone number" />
-    <UButton>Submit and Sign</UButton> <!-- N2: Should redirect to completion page -->
+    <UButton>Submit and Sign</UButton> <!-- Note 2: Should redirect to completion page -->
   </div>
 </template>
 
