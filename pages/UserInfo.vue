@@ -1,8 +1,11 @@
 <template>
-  <div class="relative bg-gray-900 py-24 sm:py-32">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 space-y-4">
+  <div class="bg-gray-900 py-12 sm:py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="space-y-8">
+        <!-- Organizer Info Card -->
         <OrganizerInfoCard />
+
+        <!-- Conditional Content -->
         <div v-if="campaignExists">
           <OrganizationSummaryCard />
           <CampaignUserList />

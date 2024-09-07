@@ -7,7 +7,7 @@
       <p
         class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-2xl"
       >
-        Help us shape a stronger organization for workers.
+        Help shape a stronger organization for workers.
       </p>
       <p class="mt-6 text-lg leading-8 text-gray-600">
         Fill out the form below to establish your union.
@@ -34,6 +34,7 @@
               type="text"
               name="organization-name"
               autocomplete="organization"
+              placeholder="Provide a short, descriptive name for the union."
               class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             />
           </div>
@@ -52,6 +53,7 @@
               type="text"
               name="mission-statement"
               autocomplete="mission"
+              placeholder="What is the primary mission of the union?"
               class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             />
           </div>
@@ -70,6 +72,7 @@
               type="text"
               name="what-we-do"
               autocomplete="what-we-do"
+              placeholder="What can your union help with? What do you stand for?"
               class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             />
           </div>
@@ -80,7 +83,7 @@
           type="submit"
           class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 hover:shadow-lg hover:scale-105 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
-          Sign and Submit
+          Create Union
         </button>
       </div>
     </form>

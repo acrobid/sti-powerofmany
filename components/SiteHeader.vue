@@ -45,7 +45,7 @@
 const loginModal = ref(false);
 const registerModal = ref(false);
 
-const isLogedIn = ref(true);
+const isLogedIn = ref(false);
 </script>
 
 <style></style>
