@@ -3,8 +3,8 @@
     <nav class="bg-gray-900 text-white px-6 py-4">
       <div class="flex justify-between items-center">
         <div class="flex items-center">
-          <img
-            src="/public/logo.webp"
+          <NuxtImg
+            src="logo.webp"
             alt="Union Creation Logo"
             class="h-10 w-auto mr-4"
           />
