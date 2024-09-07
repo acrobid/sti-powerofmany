@@ -2,8 +2,13 @@
   <div class="relative bg-gray-900 py-24 sm:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 space-y-4">
-        <OrganizerInfoCard />
-        <div v-if="!campaignExists">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <div v-if="qrCodeLink" class="flex justify-center">
+            <QRCode :link="qrCodeLink" />
+          </div>
+          <OrganizerInfoCard />
+        </div>
+        <div v-if="campaignExists">
           <OrganizationSummaryCard :company-name="companyName" />
           <CampaignUserList :union-name="companyName" />
         </div>
@@ -22,6 +27,7 @@ const userToken = useStorage("userToken", "");
 
 const companyName = ref("");
 const campaignExists = computed(() => companyName.value !== "");
+const qrCodeLink = ref<string | null>();
 
 interface UnionInfo {
   unionName: string;
@@ -52,6 +58,7 @@ async function fetchUnionInfo() {
     const unions = result.unions;
     if (unions && unions.length > 0) {
       companyName.value = unions[0].unionName;
+      qrCodeLink.value = unions[0].qrCodeLink;
     }
   } catch (error) {
     console.error("Error:", error);
