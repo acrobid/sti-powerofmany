@@ -14,10 +14,7 @@
       </p>
     </div>
     <form
-      action="#"
-      method="POST"
       class="mx-auto mt-16 max-w-xl sm:mt-20 bg-gray-50 p-8 rounded-lg shadow-lg"
-      @submit="submitForm"
     >
       <div class="grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2">
         <div class="sm:col-span-2">
@@ -76,12 +73,12 @@
         </div>
       </div>
       <div class="mt-10">
-        <button
-          type="submit"
+        <UButton
           class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 hover:shadow-lg hover:scale-105 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          @click="submitForm"
         >
           Sign and Submit
-        </button>
+        </UButton>
       </div>
     </form>
   </div>
@@ -118,9 +115,9 @@ async function submitForm() {
     },
   } as const;
 
-  const url = `http://3.34.105.135:8000/creators/create/${userToken.value}`;
+  const url = `http://3.34.105.135:8000/unions/create/${userToken.value}`;
 
-  const result = await fetch(url, requestOptions).catch((error) => {
+  const result = await $fetch(url, requestOptions).catch((error) => {
     console.error("Error:", error);
   });
 

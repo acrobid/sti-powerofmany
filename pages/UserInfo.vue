@@ -42,16 +42,17 @@ async function fetchUnionInfo() {
     },
   } as const;
 
-  const url = `http://3.34.105.135:8000/creators/create/${userToken.value}`;
+  const url = `http://3.34.105.135:8000/unions/read/${userToken.value}`;
 
   try {
-    const result = (await $fetch(
-      url,
-      requestOptions,
-    )) as unknown as UnionInfo[];
+    const result = (await $fetch(url, requestOptions)) as unknown as {
+      unions: UnionInfo[];
+    };
     console.log({ result });
-    const { unionName } = result[0];
-    companyName.value = unionName;
+    const unions = result.unions;
+    if (unions && unions.length > 0) {
+      companyName.value = unions[0].unionName;
+    }
   } catch (error) {
     console.error("Error:", error);
   }
