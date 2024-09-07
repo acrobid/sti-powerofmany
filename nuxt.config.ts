@@ -1,9 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+
   image: {
     provider: "ipx",
   },
+
   experimental: { appManifest: false },
 
   routeRules: {
@@ -12,4 +14,5 @@ export default defineNuxtConfig({
   },
 
   modules: ["@nuxt/ui", "@nuxt/eslint", "@nuxt/image", "@nuxt/icon"],
+  compatibilityDate: "2024-09-08",
 });

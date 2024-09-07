@@ -1,8 +1,7 @@
 <template>
   <GenericModal v-model="isOpen" title="Register for a new account">
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form class="space-y-6" action="#" method="POST">
-        <!-- Email Input -->
+      <form class="space-y-6">
         <div>
           <label for="email" class="block text-sm font-medium leading-6 text-gray-300">Email address</label>
           <div class="mt-2">
@@ -65,7 +64,6 @@
         <!-- Sign Up Button -->
         <div>
           <UButton
-            type="submit"
             color="violet"
             class="flex w-full justify-center rounded-md bg-violet-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 disabled:opacity-50 disabled:cursor-not-allowed"
             :disabled="isDisabled"
@@ -107,12 +105,12 @@ const passwordConfirmHint = computed(() => {
 
 async function submitRegistration() {
   const json = {
-    creatorName: "홍길동",
-    emailName: "hong@example.com",
+    creatorName: email.value,
+    emailName: email.value,
     birthDate: "1990-01-01",
-    phoneNum: "01012345678",
-    userId: "hong123",
-    userPwd: "securepassword",
+    phoneNum: email.value,
+    userId: email.value,
+    userPwd: password.value,
   };
   const raw = JSON.stringify(json);
 
