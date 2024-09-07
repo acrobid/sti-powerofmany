@@ -19,7 +19,7 @@
         />
         <UButton
           color="violet"
-          class="px-6 py-2"
+          class="mt-4 px-6 py-2"
           :loading="loading"
           @click="chat(chatInput)"
         >
@@ -36,12 +36,14 @@
         }"
       />
     </p>
-    <ChatBotExampleButton
-      v-for="question in unionQuestions"
-      :key="question"
-      :question="question"
-      @start-chat="(input: string)=>useExampleQuestion(input)"
-    />
+    <div class="flex mt-6 grid grid-cols-1 gap-4">
+      <ChatBotExampleButton
+        v-for="question in unionQuestions"
+        :key="question"
+        :question="question"
+        @start-chat="(input: string)=>useExampleQuestion(input)"
+      />
+    </div>
   </div>
 </template>
 
