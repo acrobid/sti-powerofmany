@@ -58,9 +58,19 @@
       </form>
     </div>
 
-    <!-- Close Modal -->
-    <div class="mt-4 text-center">
-      <UButton color="violet" @click="isOpen = false"> Close </UButton>
+    <!-- Register modal -->
+    <div class="mt-10 text-center text-white">
+      <p>No account yet?</p>
+    </div>
+    <div class="mt-2 text-center">
+      <div class="mt-2 text-center">
+        <UButton 
+          @click="$emit('register')" 
+          class="flex justify-center items-center w-1/2 mx-auto rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+        >
+          Register here
+        </UButton>
+      </div>
     </div>
   </GenericModal>
 </template>
