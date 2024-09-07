@@ -82,20 +82,20 @@
             :disabled="isDisabled"
             @click="submitRegistration"
           >
-            Sign in
+            Sign up
           </UButton>
         </div>
       </form>
     </div>
-    <div class="my-4 text-center">
-      <UButton
-        class="text-gray-400 hover:text-gray-200"
-        color="violet"
-        @click="isOpen = false"
-      >
-        Close
-      </UButton>
-    </div>
+    <!-- Close Button -->
+    <div class="mt-10 text-center">
+        <UButton 
+          @click="isOpen = false" 
+          class="flex justify-center items-center w-1/2 mx-auto rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+        >
+          Close
+        </UButton>
+      </div>
   </GenericModal>
 </template>
 
