@@ -1,24 +1,26 @@
 <template>
-  <div class="border-b border-gray-200 bg-white px-4 py-5 sm:px-6">
-    <h3 class="text-base font-semibold leading-6 text-gray-900 pb-8">
-      Total signatures {{ people.length }}
+  <div class="border-b border-gray-200 bg-white px-4 py-5 sm:px-6 sm:rounded-lg">
+    <!-- Total Signatures -->
+    <h3 class="text-2xl font-bold leading-6 text-gray-900 pb-8">
+      Total Signatures: 
+      <span class="text-violet-600 text-3xl font-extrabold">20</span>
     </h3>
 
+    <!-- User List -->
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
       <div
         v-for="person in people"
         :key="person.email"
-        class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400"
+        class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-green-500 focus-within:ring-offset-2 hover:border-gray-400"
       >
         <div class="min-w-0 flex-1">
           <a href="#" class="focus:outline-none">
-            <span class="absolute inset-0" aria-hidden="true" />
+            <span class="absolute inset-0" aria-hidden="true"></span>
             <p class="text-sm font-medium text-gray-900">{{ person.name }}</p>
             <p class="truncate text-sm text-gray-500">{{ person.role }}</p>
           </a>
         </div>
         <div>
-          <span class="absolute inset-0" aria-hidden="true" />
           <p class="text-sm font-medium text-gray-900">{{ person.email }}</p>
           <p class="truncate text-sm text-gray-500">{{ person.department }}</p>
         </div>
@@ -33,7 +35,11 @@ const onePerson = {
   email: "leslie.alexander@example.com",
   department: "Business Development",
   role: "Co-Founder / CEO",
-};
-// More people...
-const people = Array.from({ length: 20 }, () => ({ ...onePerson }));
+}
+
+// Example list of people (20)
+const people = Array.from({ length: 20 }, () => ({ ...onePerson }))
 </script>
+
+<style scoped></style>
+
