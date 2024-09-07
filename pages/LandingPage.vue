@@ -40,11 +40,6 @@
 
         <p class="mt-6 text-center text-sm text-gray-400">
           Join today and make a difference.
-          <a 
-            class="font-semibold text-white hover:text-violet-300 cursor-pointer"
-          >
-            Create a union
-          </a>
         </p>
 
       </div>
