@@ -35,7 +35,11 @@
                 Chat Now
               </UButton>
             </div>
-            <TypewriterEffect
+          </div>
+        </div>
+
+        <p class="mt-6 text-center text-sm text-gray-400">
+          <TypewriterEffect
               :options="{
                 strings: [
                   'Unions reduce income inequality.',
@@ -44,14 +48,6 @@
                 ],
               }"
             />
-          </div>
-        </div>
-
-        <p class="mt-6 text-center text-sm text-gray-400">
-          Join today and make a difference.
-          <a class="font-semibold text-reen-400 hover:text-violet-300"
-            >Learn more</a
-          >
         </p>
       </div>
     </div>
