@@ -4,8 +4,8 @@ export default defineNuxtConfig({
 
   routeRules: {
     // prerender index route by default
-    '/': { prerender: true },
+    "/": { prerender: true, redirect: "/LandingPage" },
   },
 
-  modules: ['@nuxt/ui', '@nuxt/eslint'],
+  modules: ["@nuxt/ui", "@nuxt/eslint"],
 });
