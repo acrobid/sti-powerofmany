@@ -65,6 +65,16 @@
               class="block w-full rounded-md border-0 py-1.5 bg-gray-700 text-white shadow-sm ring-1 ring-inset ring-gray-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
             />
           </div>
+          <div
+            v-if="password !== confirmPassword"
+            class="flex items-center justify-between"
+          >
+            <label
+              for="password"
+              class="block text-sm font-medium leading-6 text-red-300"
+              >{{ passwordConfirmHint }}</label
+            >
+          </div>
         </div>
         <div>
           <UButton
@@ -98,6 +108,13 @@ const confirmPassword = ref("");
 
 const isOpen = defineModel<boolean>();
 const isDisabled = computed(() => !email.value || !password.value);
+const doPasswordsMatch = computed(
+  () => password.value === confirmPassword.value,
+);
+const passwordConfirmHint = computed(() => {
+  if (!confirmPassword.value) return "";
+  return doPasswordsMatch.value ? "Passwords match" : "Passwords do not match";
+});
 
 function submitRegistration() {
   console.log("Submitting registration...");
