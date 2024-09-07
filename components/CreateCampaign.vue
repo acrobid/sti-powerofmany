@@ -91,6 +91,8 @@
 import { useStorage } from "@vueuse/core";
 const userToken = useStorage("userToken", "");
 
+const router = useRouter();
+
 const organizationName = ref("");
 const missionStatement = ref("");
 const whatWeDo = ref("");
@@ -120,8 +122,21 @@ async function submitForm() {
 
   const url = `http://3.34.105.135:8000/unions/create/${userToken.value}`;
 
-  const result = await $fetch(url, requestOptions).catch((error) => {
+  interface UnionResponse {
+    qrCodeLink: string;
+    signedCount: number;
+    unionName: string;
+  }
+
+  const result = (await $fetch(url, requestOptions).catch((error) => {
     console.error("Error:", error);
+    return;
+  })) as unknown as UnionResponse;
+
+  const { unionName, qrCodeLink } = result;
+
+  router.push({
+    path: `/UnionInfo?unionName=${unionName}&qrCodeLink=${qrCodeLink}`,
   });
 
   console.log({ result });

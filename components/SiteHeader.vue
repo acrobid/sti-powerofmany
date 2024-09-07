@@ -11,7 +11,7 @@
           <div class="text-2xl font-bold">Form a union</div>
         </div>
 
-        <div v-if="!isLogedIn">
+        <div v-if="!isLoggedIn">
           <UButton
             color="violet"
             class="px-4 py-2 rounded mr-2"
@@ -30,6 +30,7 @@
         <button
           v-else
           class="bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded"
+          @click="logout"
         >
           Logout
         </button>
@@ -42,10 +43,20 @@
 </template>
 
 <script lang="ts" setup>
+import { useStorage } from "@vueuse/core";
+
+const router = useRouter();
+
+const userToken = useStorage("userToken", "");
 const loginModal = ref(false);
 const registerModal = ref(false);
 
-const isLogedIn = ref(false);
+const isLoggedIn = computed(() => userToken.value !== "");
+
+function logout() {
+  userToken.value = "";
+  router.push({ path: "/LandingPage" });
+}
 </script>
 
 <style></style>
