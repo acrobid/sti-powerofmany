@@ -6,7 +6,7 @@
           <div v-if="qrCodeLink" class="flex justify-center">
             <QRCode :link="qrCodeLink" />
           </div>
-          <OrganizerInfoCard />
+          <OrganizerInfoCard v-if="false" />
         </div>
         <div v-if="campaignExists">
           <OrganizationSummaryCard :company-name="companyName" />
