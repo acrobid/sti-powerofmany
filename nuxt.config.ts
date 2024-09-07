@@ -7,5 +7,5 @@ export default defineNuxtConfig({
     '/': { prerender: true },
   },
 
-  modules: ['@nuxt/ui'],
+  modules: ['@nuxt/ui', '@nuxt/eslint'],
 });
