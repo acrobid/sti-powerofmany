@@ -5,7 +5,7 @@
         <h1
           class="text-base font-semibold leading-7 text-indigo-700 lg:text-5xl"
         >
-          Union Name
+          {{ unionName }}
         </h1>
         <p
           class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-2xl"
