@@ -27,8 +27,8 @@
             <h1
               class="mt-24 text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl"
             >
-              Join the [Union Name] and stand together for fair wages, job
-              security, and the respect you deserve.
+              Join a union and stand together for fair wages, job security, and
+              the respect you deserve.
             </h1>
             <p class="mt-6 text-lg leading-8 text-gray-600">
               Why Join Us? • Stronger Together: United, we negotiate better pay,
