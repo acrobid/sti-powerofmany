@@ -27,7 +27,7 @@
         </UButton>
       </div>
     </div>
-    <p class="mt-6 text-center text-sm text-gray-400">
+    <div class="mt-6 text-center text-sm text-gray-400">
       <TypewriterEffect
         :key="chatKey"
         :options="{
@@ -35,7 +35,7 @@
           delay: 35,
         }"
       />
-    </p>
+    </div>
     <div class="flex mt-6 grid grid-cols-1 gap-4">
       <ChatBotExampleButton
         v-for="question in unionQuestions"
