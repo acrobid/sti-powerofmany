@@ -1,5 +1,5 @@
 <template>
-  <div class="border-b border-gray-200 bg-white px-4 py-5 sm:px-6">
+  <div class="border-b border-gray-200 bg-white px-4 py-5 sm:px-6 rounded-lg mt-4">
     <h3 class="text-base font-semibold leading-6 text-gray-900 pb-8">
       Total signatures {{ people.length }}
     </h3>
