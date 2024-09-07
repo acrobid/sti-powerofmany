@@ -54,7 +54,6 @@
           >
             Log in
           </UButton>
-          <UButton @click="$emit('register')">Register</UButton>
         </div>
       </form>
     </div>
@@ -68,12 +67,15 @@
 
 <script lang="ts" setup>
 import { useStorage } from "@vueuse/core";
+
 defineEmits(["register"]);
 const isOpen = defineModel<boolean>();
 const userToken = useStorage("userToken", "");
 
 const email = ref("");
 const password = ref("");
+
+const router = useRouter();
 
 async function submitLogin() {
   console.log(
@@ -101,9 +103,14 @@ async function submitLogin() {
   });
 
   // @ts-expect-error no typing here
-  userToken.value = result?.id;
+  userToken.value = result?.creator_id;
 
-  console.log({ result });
+  console.log(userToken.value);
+
+  if (userToken.value) {
+    router.push({ path: "/UserInfo" });
+    isOpen.value = false;
+  }
 }
 </script>
 

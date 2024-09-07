@@ -133,7 +133,7 @@ async function submitRegistration() {
     },
   } as const;
 
-  const result = await fetch(
+  const result = await $fetch(
     "http://3.34.105.135:8000/creators/register",
     requestOptions,
   ).catch((error) => {
