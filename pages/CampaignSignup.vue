@@ -158,7 +158,7 @@
           class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 hover:shadow-lg hover:scale-105 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           @click="submitForm"
         >
-          Sign and Submit {{ unionName }}
+          Sign and Submit
         </UButton>
       </div>
     </form>
@@ -166,9 +166,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import { Switch, SwitchGroup, SwitchLabel } from "@headlessui/vue";
 import { useRouteQuery } from "@vueuse/router";
+
+const router = useRouter();
 
 const unionName = useRouteQuery("unionName", "");
 
@@ -218,7 +219,10 @@ async function submitForm() {
 
   const result = await $fetch(url, requestOptions).catch((error) => {
     console.error("Error:", error);
+    return;
   });
+
+  router.push({ path: "/FormCompletion" });
 
   console.log({ result });
 }
