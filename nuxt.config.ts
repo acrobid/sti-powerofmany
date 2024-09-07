@@ -4,11 +4,12 @@ export default defineNuxtConfig({
   image: {
     provider: "ipx",
   },
+  experimental: { appManifest: false },
 
   routeRules: {
     // prerender index route by default
     "/": { prerender: true, redirect: "/LandingPage" },
   },
 
-  modules: ["@nuxt/ui", "@nuxt/eslint", "@nuxt/image"],
+  modules: ["@nuxt/ui", "@nuxt/eslint", "@nuxt/image", "@nuxt/icon"],
 });
